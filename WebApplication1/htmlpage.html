@@ -1,0 +1,890 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<style>
+		table {
+			width: 300px;
+			border-collapse: collapse;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+		}
+
+		th,
+		td {
+			padding: 10px;
+		}
+
+		table.secondary caption {
+			caption-side: bottom;
+		}
+
+		h4 {
+			text-align: center;
+		}
+
+		u {
+			text-decoration: none;
+			border-bottom: 2px solid black;
+		}
+
+		.u {
+			color: blue;
+		}
+
+		#sig-canvas {
+			border: 1px solid #CCCCCC !important;
+			cursor: crosshair;
+		}
+
+		.error {
+			color: red;
+			font: 80%
+		}
+
+		.hidden {
+			display: none;
+		}
+		/*button submit styling*/
+		.example_b {
+			color: #fff !important;
+			text-transform: uppercase;
+			text-decoration: none;
+			background: #60a3bc;
+			padding: 20px;
+			border-radius: 50px;
+			display: inline-block;
+			border: none;
+			transition: all 0.4s ease 0s;
+		}
+
+			.example_b:hover {
+				text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+				-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+				-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+				transition: all 0.4s ease 0s;
+			}
+
+		/*symptoms radio bu*/
+		/*input[type=radio] {
+			border: 1px solid #000000;
+			padding: 0.5em;
+			-webkit-appearance: none;
+		}
+
+			input[type=radio]:checked {
+				background: blue;
+				background-size: 9px 9px;
+			}
+
+			input [type=radio]:focus {
+				outline-color: transparent;
+			}*/
+
+
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script>
+
+
+
+		$(document).ready(function () {
+			$("#contractorID").click(function () {
+				$("#staffStudentNo").hide();
+				$("#universityNo").hide();
+			});
+			$("#serviceProviderID").click(function () {
+				$("#staffStudentNo").hide();
+				$("#universityNo").hide();
+			});
+			$("#supplierID").click(function () {
+				$("#staffStudentNo").hide();
+				$("#universityNo").hide();
+			});
+			$("#employeeID").click(function () {
+				$("#compNameID").hide();
+			});
+			$("#studentID").click(function () {
+				$("#compNameID").hide();
+			});
+			$("#visitorID").click(function () {
+				$("#staffStudentNo").hide();
+				$("#universityNo").hide();
+				$("#compNameID").hide();
+			});
+
+
+
+			$("#contractorID").click(function () {
+				$("#compNameID").show();
+			});
+			$("#serviceProviderID").click(function () {
+				$("#compNameID").show();
+			});
+			$("#supplierID").click(function () {
+				$("#compNameID").show();
+			});
+			$("#employeeID").click(function () {
+				$("#staffStudentNo").show();
+				$("#universityNo").show();
+			});
+			$("#studentID").click(function () {
+				$("#staffStudentNo").show();
+				$("#universityNo").show();
+			});
+		})
+	</script>
+	<script>
+	
+
+	//Person type checkbox (select only 1)
+	window.onload = function () {
+		var infoTable = document.getElementById("infoTable");
+		var chks = infoTable.getElementsByTagName("INPUT");
+		for (var i = 0; i < chks.length; i++) {
+			chks[i].onclick = function () {
+				for (var i = 0; i < chks.length; i++) {
+					if (chks[i] != this && this.checked) {
+						chks[i].checked = false;
+					}
+				}
+			};
+
+		}
+		let today = new Date().toISOString().substr(0, 10);
+		document.querySelector("#todayDate").value = today;
+
+		};
+
+		
+
+
+	//validate student numbet txt
+	function isNumberKey(evt) {
+		var charCode = (evt.which) ? evt.which : event.keyCode
+		if (charCode > 31 && (charCode < 48 || charCode > 57))
+			return false;
+
+		return true;
+		}
+
+		//symptoms only check yes/no
+		function onlyOne(checkbox) {
+			var checkboxes = document.getElementsByName('check')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only1(checkbox) {
+			var checkboxes = document.getElementsByName('check1')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only2(checkbox) {
+			var checkboxes = document.getElementsByName('check2')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only3(checkbox) {
+			var checkboxes = document.getElementsByName('check3')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only4(checkbox) {
+			var checkboxes = document.getElementsByName('check4')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only5(checkbox) {
+			var checkboxes = document.getElementsByName('check5')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only6(checkbox) {
+			var checkboxes = document.getElementsByName('check6')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only7(checkbox) {
+			var checkboxes = document.getElementsByName('check7')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only8(checkbox) {
+			var checkboxes = document.getElementsByName('check8')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only9(checkbox) {
+			var checkboxes = document.getElementsByName('check9')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only10(checkbox) {
+			var checkboxes = document.getElementsByName('check10')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only11(checkbox) {
+			var checkboxes = document.getElementsByName('check11')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only12(checkbox) {
+			var checkboxes = document.getElementsByName('check12')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+		function only13(checkbox) {
+			var checkboxes = document.getElementsByName('check13')
+			checkboxes.forEach((item) => {
+				if (item !== checkbox) item.checked = false
+			})
+		}
+
+
+	
+	</script>
+
+</head>
+
+
+<body style="margin: 1% auto; margin-right: auto; margin-left: auto; width: 80% !important; padding-top: 11px; ">
+	<div id="divForm">
+
+		<h5><img src="C:\Users\voyma\source\repos\WebApplication1\WebApplication1\wits logo.png" width="70" height="50" style=" display: block; margin-left: auto; margin-right: auto;"/></h5>
+		
+	
+		<h4 style="text-align:center">
+			Department of Health Covid19 24-Hour Hotline Number: 0800 029 999 and WhatsApp number: 0600 12 3456
+		</h4>
+
+		<h4 style="color:blue;">
+			DAILY COVID -19 SYMPTOM SCREENING ASSESSMENT
+		</h4>
+
+		<h5 style="padding-left:10%">
+			Please complete this daily self-screening questionnaire <span style="text-decoration:underline; text-decoration-color:black;" >before</span> leaving home and <span style="text-decoration:underline; text-decoration-color:black;">before</span> coming onto Campus.
+		</h5>
+
+		<h5 style="color:blue; font-size: 14px;padding-left:10%">
+			<b>NB:</b> <span style="text-decoration:underline; text-decoration-color:blue;"> Persons are not permitted onto Campus if the below screening has not been done.</span>
+		</h5>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+		<table id="infoTable" style="margin: 1% auto; margin-right: auto; margin-left: auto; width: 80% !important; padding-top: 11px; ">
+			<tr>
+				<th>Employee</th>
+				<th><input type="checkbox" value="1" onclick="checkbox()" id="employeeID"></th>
+				<th>Student</th>
+				<th><input type="checkbox" value="2" onclick="checkbox()" id="studentID"></th>
+				<th>Contractor</th>
+				<th><input type="checkbox" value="3" onclick="checkbox()" id="contractorID"></th>
+				<th>Service Provider</th>
+				<th><input type="checkbox" value="4" onclick="checkbox()" id="serviceProviderID"></th>
+				<th>Supplier</th>
+				<th><input type="checkbox" value="5" onclick="checkbox()" id="supplierID"></th>
+				<th>Visitor</th>
+				<th><input type="checkbox" value="6" onclick="checkbox()" id="visitorID"></th>
+			</tr>
+
+			<tr>
+				<td colspan="6" style="background-color: #E8E8E8"><strong>Full Name(s) and Signature:</strong></td>
+				<td colspan="2"><input type="text" id="fname" name="fname"></td>
+
+				<td colspan="4">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-md-12">
+								<canvas id="sig-canvas" width="220" height="50">
+									Get a better browser, bro.
+								</canvas>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+
+								<button class="btn btn-default" id="sig-clearBtn">clear</button>
+							</div>
+						</div>
+						<br />
+
+					</div>
+
+
+				</td>
+			</tr>
+
+
+
+
+
+			<tr id="staffStudentNo">
+				<td colspan="6" style="background-color: #E8E8E8"><strong>Staff / Student Number (if Employee or Student):</strong></td>
+				<td colspan="6"><input type="text" id="sNumber" onkeypress="return isNumberKey(event)" name="sNumber"></td>
+			</tr>
+
+			<tr id="universityNo">
+				<td colspan="6" style="background-color: #E8E8E8">
+					<strong>
+						From which University entity / division / school (if an
+						Employee or Student):
+					</strong>
+				</td>
+				<td colspan="6"><input type="text" id="sFrom" name="sFrom"></td>
+			</tr>
+
+			<tr id="compNameID">
+				<td colspan="6" style="background-color: #E8E8E8">
+					<strong>
+						Company name (if a Contractor, Service Provider or
+						Supplier):
+					</strong>
+				</td>
+				<td colspan="6"><input type="text" id="cName" name="cName"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="6" style="background-color: #E8E8E8"><strong> <label for="myForm_phone">Cellphone Number:</label></strong></td>
+				<td colspan="3">
+					<input type="tel" id="cellNumber" name="cellNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">				
+				</td>
+				<td colspan="3"><input type="date" id="todayDate" name="todayDate" /></td>
+			</tr>
+
+		</table>
+
+
+
+		<h5 style="color:blue;padding-left:10%">
+			I hereby attest that the information provided in the below checklist is a true reflection of my screening results.
+		</h5>
+
+		<table id="symptomsID" style="margin: 1% auto !important; margin-right: auto !important; margin-left: auto !important; width: 85% !important; padding-top: 11px !important; ">
+
+			<tr style="background-color: #D3D3D3">
+				<td colspan="1"><strong>No.</strong></td>
+				<td colspan="9"><strong>CONDITION / SYMPTOM</strong></td>
+				<td colspan="2"><strong>RESPONSE</strong></td>
+			</tr>
+
+			<tr style="border:none; border-spacing:0; border-collapse:collapse;background-color: #E8E8E8">
+				<th style="border-bottom:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden;border-right:hidden "></th>
+				<th style="border-bottom:hidden "></th>
+				<th style="border-bottom:hidden "></th>
+				<th style="border-bottom:hidden "></th>
+			</tr>
+
+			<tr>
+				<td colspan="1" style=" background-color: #E8E8E8"><strong style="font:bold; color:blue">A</strong></td>
+				<td colspan="9" style=" background-color: #E8E8E8"><h3 style="color: blue;">Symptom Check <strong style="color:blue">(Please select the relevant response in the yes / no column):</strong></h3></td>
+				<td style=" background-color: #E8E8E8"></td>
+				<td style=" background-color: #E8E8E8"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>1</strong></td>
+				<td colspan="9">Are you suffering from fever / high temperature or have temperature fluctuations?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="1aYes" value="1" name="check" onclick="onlyOne(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="1aNo" value="2" name="check" onclick="onlyOne(this)"></td>
+
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>2</strong></td>
+				<td colspan="9">Do you have a dry cough?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="2aYes" name="check1" onclick="only1(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="2aNo" name="check1" onclick="only1(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>3</strong></td>
+				<td colspan="9">Do you have a sore throat?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="3aYes" name="check2" onclick="only2(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="3aNo" name="check2" onclick="only2(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>4</strong></td>
+				<td colspan="9">Do you have redness of eyes?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="4aYes" name="check3" onclick="only3(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="4aNo" name="check3" onclick="only3(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>5</strong></td>
+				<td colspan="9">Do you experience shortness of breath / difficulty in breathing?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="5aYes" name="check4" onclick="only4(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="5aNo" name="check4" onclick="only4(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>6</strong></td>
+				<td colspan="9">Have you got unusual body aches / muscle pain?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="6aYes" name="check5" onclick="only5(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="6aNo" name="check5" onclick="only5(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>7</strong></td>
+				<td colspan="9">Do you experience a loss of smell / taste?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="7aYes" name="check6" onclick="only6(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="7aNo" name="check6" onclick="only6(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>8</strong></td>
+				<td colspan="9">Are you nausea and/or do you experience unusual vomiting?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="8aYes" name="check7" onclick="only7(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="8aNo" name="check7" onclick="only7(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>9</strong></td>
+				<td colspan="9">Have you got diarrhea?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="9aYes" name="check8" onclick="only8(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="9aNo" name="check8" onclick="only8(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>10</strong></td>
+				<td colspan="9">Do you suffer from fatigue / physical weakness / tiredness?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="10aYes" name="check9" onclick="only9(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="10aNo" name="check9" onclick="only9(this)"></td>
+			</tr>
+
+			<tr style="background-color: #E8E8E8">
+				<td colspan="1"><strong style="font:bold; color:blue">B</strong></td>
+				<td colspan="9"><h3 style="color:blue">Contact / Exposure Risk <strong style="color:blue">(Please select the relevant response in the yes / no column)</strong></h3></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>1</strong></td>
+				<td colspan="9">In the past 10 days have you tested positive for COVID-19?</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="1bYes" name="check10" onclick="only10(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="1bNo" name="check10" onclick="only10(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>2</strong></td>
+				<td colspan="9">
+					In the past 10 days were you exposed <span style="color:red">*</span> to someone who is positively diagnosed
+					with COVID-19, or to someone who is in quarantine / self-isolation for COVID-19?
+				   <h6 style="color:blue">
+						<span style="color:red">*</span> Exposed in family or community setting is spending >15 minutes in infected person’s company <span style="text-decoration:underline; text-decoration-color:blue;">AND</span>
+						being >1.5m apart <span style="text-decoration:underline; text-decoration-color:blue;">AND</span> not wearing a face mask. <br />
+
+						<span style="color:red">*</span> Exposed in clinical setting is not wearing proper PPE, or PPE failure <span style="text-decoration:underline; text-decoration-color:blue;">AND</span>  spending>
+						15 minutes in infected person’s company <span style="text-decoration:underline; text-decoration-color:blue;">AND</span>  being <1.5m apart
+					</h6>
+				</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="2bYes" name="check11" onclick="only11(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="2bNo" name="check11" onclick="only11(this)"></td>
+			</tr>
+
+			<tr style="background-color: #E8E8E8">
+				<td colspan="1"><strong style="font:bold; color:blue">C</strong></td>
+				<td colspan="9"> <h3 style="color:blue">Other Risk Factors<strong style="color:blue">(Please select the relevant response in the yes / no column)</strong></h3> </td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>1</strong></td>
+				<td colspan="9">
+					Do you suffer from any pre-existing medical condition / chronic illness that may
+					have compromised your immune system, i.e. respiratory disease, diabetes, heart
+					disease, or any other chronic illness that could compromise one’s immune system?
+				</td>
+				<td style="white-space:nowrap"><strong>YES</strong><input type="checkbox" id="1cYes" name="check12" onclick="only12(this)"></td>
+				<td style="white-space:nowrap"><strong>NO</strong><input type="checkbox" id="1cNo" name="check12" onclick="only12(this)"></td>
+			</tr>
+
+			<tr>
+				<td colspan="1"><strong>2</strong></td>
+				<td colspan="9">Are you 60 years of age or older?</td>
+				<td style="white-space: nowrap;"><strong>YES</strong><input type="checkbox" id="2cYes" name="check13" onclick="only13(this)"></td>
+				<td style="white-space:nowrap;"><strong>NO</strong><input type="checkbox" id="2cNo" name="check13" onclick="only13(this)"></td>
+			</tr>
+
+		</table>
+
+
+
+
+	</div>
+
+	
+		<p id="displayNoSymptoms" style="display: none; text-align: center; font-size: 24px; background-color:#c0c0c0; ">
+			You are not showing any of the COVID-19 symptoms. <br />
+			Please:
+			<ol id="olID" style="display: none; font-size: 24px; background-color: #c0c0c0;float:left;">
+				<li>
+					Wear a mask.
+				</li>
+				<li>
+					Wash your hands or sanitize frequently.
+				</li>
+				<li>
+					Social distance.
+				</li>
+			</ol>
+		</p>
+	
+
+
+	<p id="displayResults" style="display:none; text-align: center; font-size: 24px; background-color: #c0c0c0; ">
+		If you answered <span style="color:red">“YES”</span>  to any of the questions mentioned in questions <span style="color:blue">A1</span> to <span style="color:blue">A10</span>  and <span style="color:blue">B1</span> & <span style="color:blue">B2</span> then: <br />
+		<span style="color:blue">i).</span> Don’t attempt to enter Campus. <br />
+		<span style="color:blue">ii).</span> Consult your Healthcare Worker to seek advice.<br />
+		<span style="color:blue">iii). </span>Urgently notify your Supervisor / Manager / HoS / Course Coordinator if you cannot come onto Campus.<br />
+		<span style="color:blue">iv).</span> If you reside on Campus then remain in your room, seek advice telephonically from relevant CHRL staff and follow the CHRL COVID-19 protocols<br />
+		<span style="color:blue">v). </span> Only enter Campus again if cleared by a Healthcare Worker.<br />
+
+		If you experience any symptoms mentioned in questions <span style="color:blue">A1</span> to <span style="color:blue">A10</span> then this does not mean that you definitely have
+		COVID-19. This screening questionnaire is used as precautionary indicator to establish whether you should be
+		quarantined. Tests may be required for a definite diagnosis to be made.
+		<br />
+		Notify Campus Health & Wellness Centre <strong><u>ASAP</u></strong> if your status in Sections A, B or C changes at any time.
+	</p>
+
+	<p id="displayCResults" style="display:none; text-align: center; font-size: 24px; background-color:#c0c0c0; ">
+		If you answered “YES” to any of the questions in C1 and C2 (but have none of the symptoms mentioned in A1 to A10),
+		then this does not mean that you will not be permitted entry onto Campus (a decision may be necessary from CHWC
+		whether your responses require any further intervention).
+		<br />
+		Notify Campus Health & Wellness Centre <strong><u>ASAP</u></strong> if your status in Sections <span style="color:blue">A</span>, <span style="color:blue">B</span> or <span style="color:blue">C</span> changes at any time.
+	</p>
+
+
+
+	<div id="btnID" class="button_cont" align="center"><a class="example_b" draggable="false" onclick="Check();">Submit</a></div>
+
+	<!--new form btn  -->
+	<div id="newFormBtnID" class="button_cont" align="center" style="display:none"><a class="example_b" draggable="false" onclick="NewFormClick();">New Form</a></div>
+
+
+	<script>
+
+		//chech if section A checkboxes are checked
+		function Check() {
+
+			//Checking Symptoms
+			var checkForYes1a,
+				checkForYes2a,
+				checkForYes3a,
+				checkForYes4a,
+				checkForYes5a,
+				checkForYes6a,
+				checkForYes7a,
+				checkForYes8a,
+				checkForYes9a,
+				checkForYes10a,
+				checkForYes1b,
+				checkForYes2b,
+				checkForYes1c,
+				checkForYes2c;
+
+			var checkForNo1a,
+				checkForNo2a,
+				checkForNo3a,
+				checkForNo4a,
+				checkForNo5a,
+				checkForNo6a,
+				checkForNo7a,
+				checkForNo8a,
+				checkForNo9a,
+				checkForNo10a,
+				checkForNo1b,
+				checkForNo2b,
+				checkForNo1c,
+				checkForNo2c;
+
+
+			checkForYes1a = document.getElementById("1aYes");
+			checkForYes2a = document.getElementById("2aYes");
+			checkForYes3a = document.getElementById("3aYes");
+			checkForYes4a = document.getElementById("4aYes");
+			checkForYes5a = document.getElementById("5aYes");
+			checkForYes6a = document.getElementById("6aYes");
+			checkForYes7a = document.getElementById("7aYes");
+			checkForYes8a = document.getElementById("8aYes");
+			checkForYes9a = document.getElementById("9aYes");
+			checkForYes10a = document.getElementById("10aYes");
+
+			checkForYes1b = document.getElementById("1bYes");
+			checkForYes2b = document.getElementById("2bYes");
+
+			checkForYes1c = document.getElementById("1cYes");
+			checkForYes2c = document.getElementById("2cYes");
+
+
+			//All checked No
+			checkForNo1a = document.getElementById("1aNo");
+			checkForNo2a = document.getElementById("2aNo");
+			checkForNo3a = document.getElementById("3aNo");
+			checkForNo4a = document.getElementById("4aNo");
+			checkForNo5a = document.getElementById("5aNo");
+			checkForNo6a = document.getElementById("6aNo");
+			checkForNo7a = document.getElementById("7aNo");
+			checkForNo8a = document.getElementById("8aNo");
+			checkForNo9a = document.getElementById("9aNo");
+			checkForNo10a = document.getElementById("10aNo");
+
+			checkForNo1b = document.getElementById("1bNo");
+			checkForNo2b = document.getElementById("2bNo");
+
+			checkForNo1c = document.getElementById("1cNo");
+			checkForNo2c = document.getElementById("2cNo");
+
+
+
+			var displayYesResults = document.getElementById('displayResults');
+			var displayYesC = document.getElementById('displayCResults');
+			var displayNo = document.getElementById('displayNoSymptoms');
+			var displayOl = document.getElementById('olID');
+
+
+			var hideForm = document.getElementById("divForm");
+			var hideSubmitbtn = document.getElementById("btnID");
+			var newFormbtn = document.getElementById("newFormBtnID");
+
+			if ((checkForYes1a.checked == true || checkForYes2a.checked == true || checkForYes3a.checked == true || checkForYes4a.checked == true ||
+				checkForYes5a.checked == true || checkForYes6a.checked == true || checkForYes7a.checked == true || checkForYes8a.checked == true ||
+				checkForYes9a.checked == true || checkForYes10a.checked == true || checkForYes1b.checked == true || checkForYes2b.checked == true) && document.getElementById("fname").value.trim() != "" && document.getElementById("cellNumber").value.trim() != "") {
+				displayYesResults.style.display = "block";
+			} else {
+				displayYesResults.style.display = "none";
+			}
+
+			if (((checkForYes1c.checked == true || checkForYes2c.checked == true) && (checkForYes1a.checked == false && checkForYes2a.checked == false && checkForYes3a.checked == false && checkForYes4a.checked == false &&
+				checkForYes5a.checked == false && checkForYes6a.checked == false && checkForYes7a.checked == false && checkForYes8a.checked == false &&
+				checkForYes9a.checked == false && checkForYes10a.checked == false)) && document.getElementById("fname").value.trim() != "" && document.getElementById("cellNumber").value.trim() != "") {
+				displayYesC.style.display = "block";
+			} else {
+				displayYesC.style.display = "none";
+			}
+
+			//Answered No to all
+			if (checkForNo1a.checked == true && checkForNo2a.checked == true && checkForNo3a.checked == true && checkForNo4a.checked == true &&
+				checkForNo5a.checked == true && checkForNo6a.checked == true && checkForNo7a.checked == true && checkForNo8a.checked == true &&
+				checkForNo9a.checked == true && checkForNo10a.checked == true && checkForNo1b.checked == true && checkForNo2b.checked == true &&
+				checkForNo1c.checked == true && checkForNo2c.checked == true && document.getElementById("fname").value.trim() != "" && document.getElementById("cellNumber").value.trim() != "") {
+
+				displayNo.style.display = "block";
+				displayOl.style.display = "block";
+
+
+			} else {
+				displayNo.style.display = "none";
+			}
+			//validate personnel chk
+
+			if (document.getElementById('employeeID').checked || document.getElementById('studentID').checked ||
+				document.getElementById('contractorID').checked || document.getElementById('serviceProviderID').checked ||
+				document.getElementById('supplierID').checked || document.getElementById('visitorID').checked) {
+			} else {
+				alert("Please select type of person.");
+				return false;
+			}
+
+
+			//validate personnel table
+			if (document.getElementById("fname").value.trim() == "") {
+				alert("Please enter Name!");
+				document.getElementById("fname").focus;
+				return false;
+			}
+			if (document.getElementById("cellNumber").value.trim() == "") {
+				alert("Please enter valid number!");
+				document.getElementById("cellNumber").focus;
+				return false;
+			}
+
+
+			//hide form and button
+			hideForm.style.display = "none";
+			hideSubmitbtn.style.display = "none";
+			newFormbtn.style.display = "block";
+
+			
+
+
+		}
+
+		//signature script
+		(function () {
+			window.requestAnimFrame = (function (callback) {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimaitonFrame ||
+					function (callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+
+			var canvas = document.getElementById("sig-canvas");
+			var ctx = canvas.getContext("2d");
+			ctx.strokeStyle = "#222222";
+			ctx.lineWidth = 4;
+
+			var drawing = false;
+			var mousePos = {
+				x: 0,
+				y: 0
+			};
+			var lastPos = mousePos;
+
+			canvas.addEventListener("mousedown", function (e) {
+				drawing = true;
+				lastPos = getMousePos(canvas, e);
+			}, false);
+
+			canvas.addEventListener("mouseup", function (e) {
+				drawing = false;
+			}, false);
+
+			canvas.addEventListener("mousemove", function (e) {
+				mousePos = getMousePos(canvas, e);
+			}, false);
+
+			// Add touch event support for mobile
+			canvas.addEventListener("touchstart", function (e) {
+
+			}, false);
+
+			canvas.addEventListener("touchmove", function (e) {
+				var touch = e.touches[0];
+				var me = new MouseEvent("mousemove", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				canvas.dispatchEvent(me);
+			}, false);
+
+			canvas.addEventListener("touchstart", function (e) {
+				mousePos = getTouchPos(canvas, e);
+				var touch = e.touches[0];
+				var me = new MouseEvent("mousedown", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				canvas.dispatchEvent(me);
+			}, false);
+
+			canvas.addEventListener("touchend", function (e) {
+				var me = new MouseEvent("mouseup", {});
+				canvas.dispatchEvent(me);
+			}, false);
+
+			function getMousePos(canvasDom, mouseEvent) {
+				var rect = canvasDom.getBoundingClientRect();
+				return {
+					x: mouseEvent.clientX - rect.left,
+					y: mouseEvent.clientY - rect.top
+				}
+			}
+
+			function getTouchPos(canvasDom, touchEvent) {
+				var rect = canvasDom.getBoundingClientRect();
+				return {
+					x: touchEvent.touches[0].clientX - rect.left,
+					y: touchEvent.touches[0].clientY - rect.top
+				}
+			}
+
+			function renderCanvas() {
+				if (drawing) {
+					ctx.moveTo(lastPos.x, lastPos.y);
+					ctx.lineTo(mousePos.x, mousePos.y);
+					ctx.stroke();
+					lastPos = mousePos;
+				}
+			}
+
+			// Prevent scrolling when touching the canvas
+			document.body.addEventListener("touchstart", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchend", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchmove", function (e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+
+			(function drawLoop() {
+				requestAnimFrame(drawLoop);
+				renderCanvas();
+			})();
+
+			function clearCanvas() {
+				canvas.width = canvas.width;
+			}
+
+			// Set up the UI
+			var sigText = document.getElementById("sig-dataUrl");
+			var sigImage = document.getElementById("sig-image");
+			var clearBtn = document.getElementById("sig-clearBtn");
+			var submitBtn = document.getElementById("sig-submitBtn");
+			clearBtn.addEventListener("click", function (e) {
+				clearCanvas();
+				sigText.innerHTML = "Data URL for your signature will go here!";
+				sigImage.setAttribute("src", "");
+			}, false);
+
+
+		})();
+
+		function NewFormClick() {
+			location.replace("file:///C:/Users/voyma/source/repos/WebApplication1/WebApplication1/htmlpage.html")
+
+		}
+	</script>
+
+</body>
+
+
+
+</html>
+
